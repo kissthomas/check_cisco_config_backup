@@ -1,5 +1,5 @@
-# check_cisco_config_backup
-Nagios/Icinga script to backup/save Cisco IOS configuration.
+# check_config_backup
+Nagios/Icinga scripts to backup/save Cisco IOS and Mikrotik configuration.
 
 Special script for nagios/icinga to initiate Config Backup via SNMP to a
  specified server supported by cisco device (tftp for example).
@@ -18,11 +18,11 @@ your cisco devices (run copy running-config startup-config periodically)
 ## Icinga2 command template
 ### Command template
 ```icinga2
-object CheckCommand "check-config-backup" {
+object CheckCommand "check-config-backup-cisco" {
 	import "plugin-check-command"
 	import "ipv4-or-ipv6"
 
-	command = [ PluginDir + "/check_config_backup_save.sh" ]
+	command = [ PluginDir + "/check_config_backup_cisco.sh" ]
 
 	arguments = {
 		"-H" = "$configbackup_address$"
@@ -70,7 +70,7 @@ object CheckCommand "check-config-backup" {
 ```icinga2
 apply Service "config-backup" {
     import "generic-service"
-    check_command = "check-config-backup"
+    check_command = "check-config-backup-cisco"
     check_interval = 12h
 
     /**
