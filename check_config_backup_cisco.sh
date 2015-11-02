@@ -8,10 +8,10 @@
 # Usage:
 #
 # Backing up to remote server:
-# ./check_config_backup_save.sh -H 10.254.254.1 -i 10.254.254.211
+# ./check_config_backup_cisco.sh -H 10.254.254.1 -i 10.254.254.211
 #
 # Saving running config to startup config:
-# ./check_config_backup_save.sh -H 10.254.254.1 -s 4 -d 3
+# ./check_config_backup_cisco.sh -H 10.254.254.1 -s 4 -d 3
 #
 
 HOST=127.0.0.1
